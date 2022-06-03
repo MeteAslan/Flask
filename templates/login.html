@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+    <form method="POST" autocomplete="off">
+      {{form.hidden_tag()}}
+  
+      
+      {{form.username.label(class="form-label")}}
+      {{form.username(class="form-control form-outline")}}
+      
+      <br>
+      
+      {{form.password.label(class="form-label")}}
+      {{form.password(class="form-control form-outline")}}
+          
+          <br>
+      {{form.submit(class="btn btn-primary btn-block")}}    
+  </form>
+  
+  </div>
+{% endblock %}

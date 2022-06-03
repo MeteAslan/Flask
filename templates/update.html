@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+    <form action="/update_item/{{ item.id }}/{{item.category_db}}" method="POST" autocomplete="off">
+      {{form.hidden_tag()}}
+  
+      
+  
+      {{form.name.label(class="form-label")}}
+      {{form.name(class="form-control",value = item.name_db)}}
+      <br>
+      {{form.price.label(class="form-label")}}
+      {{form.price(class="form-label",value = item.price_db)}}
+      <br><br>
+      {{form.category.label(class="form-label")}}
+      {{form.category(class="form-control")}}
+      <br>
+      <br>
+      {{form.email.label(class="form-label")}}<br/>
+      {% for error in form.email.errors %}
+          <span style="color:red;">
+              Invalid Email Entry !
+          </span>
+        {% endfor %}
+      {{form.email(class="form-control",value = item.email_db)}}
+          
+         
+          <br>
+      {{form.picture_link.label(class="form-label")}}
+      {{form.picture_link(class="form-label",value = item.picture_link_db)}}
+          
+          <br>
+      {{form.submit(class="btn btn-outline-warning btn-block", value="Update")}}    
+  </form>
+  
+  </div>
+{% endblock %}
+
+

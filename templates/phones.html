@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container mt-3 d-flex flex-row justify-content-between flex-wrap">
+{%for phone in phones%}
+    <div class="card mt-3 mb-3" style="width: 18rem;">
+        <img class="card-img-top" src={{phone.picture_link_db}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{phone.name_db}}</h5>
+          
+          {% if phone.email_db %}
+          <p class="card-text text-center fw-light"> <span class="fs-6 fw-normal">Seller Email: </span><small>{{phone.email_db}}</small> </p>
+          {% endif %}
+          
+          <hr>
+          <p class="card-text text-center"><strong>{{phone.price_db}} TL</strong></p>
+        
+        {%if current_user.is_authenticated%}  
+        <hr>
+        <div class="d-flex flex-row justify-content-around">
+          <a href="{{url_for('update_item',id=phone.id,category=phone.category_db)}}" class="btn btn-warning">Update<i class="fa-solid fa-pen-to-square m-1"></i></a>
+          <a href="{{url_for('delete_item',id=phone.id,category=phone.category_db)}}" class="btn btn-danger">Delete<i class="fa-solid fa-trash-can m-1"></i></a>
+        </div>
+        {%endif%}
+
+        </div>
+        {% if phone.record_time_db %}
+        <div class="card-footer bg-secondary bg-opacity-25">
+          <small class="text-muted">Date of Upload {{phone.record_time_db}}</small>
+        </div>
+        {% endif %}
+      </div>
+    
+{%endfor%}
+    
+</div>
+{% endblock %}
+
+

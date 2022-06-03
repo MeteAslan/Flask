@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+    <form method="POST" autocomplete="off">
+      {{form.hidden_tag()}}
+  
+      
+  
+      {{form.name.label(class="form-label")}}
+      {{form.name(class="form-control")}}
+      <br>
+      {{form.price.label(class="form-label")}}
+      {{form.price(class="form-control")}}
+      <br><br>
+      {{form.category.label(class="form-label")}}
+      {{form.category(class="form-control")}}
+      <br>
+      <br>
+      {{form.email.label(class="form-label")}}<br/>
+      {% for error in form.email.errors %}
+          <span style="color:red;">
+              Invalid Email Entry ! jkasdhfjkdsahf
+          </span>
+        {% endfor %}
+      {{form.email(class="form-control")}}
+          
+         
+          <br>
+      {{form.picture_link.label(class="form-label")}}
+      {{form.picture_link(class="form-control")}}
+          
+          <br>
+      {{form.submit(class="btn btn-outline-primary btn-block")}}    
+  </form>
+  
+  </div>
+{% endblock %}
+
+

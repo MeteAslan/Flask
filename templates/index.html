@@ -1,0 +1,18 @@
+{% extends "layout.html" %} {% block body %}
+
+<div class="container d-flex flex-column align-items-center justify-content-center mt-5">
+  {% if current_user.is_authenticated %}
+  <h1>Hello <b>{{current_user.username_db}}</b></h1>
+  {% else %}
+  <h1>Welcome to our store</h1>
+  {% endif %}
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quas tempora
+    sed itaque soluta temporibus. Laboriosam, laborum sunt! Atque repellat
+    ducimus eos porro enim ad repellendus, veritatis inventore, quasi possimus
+    velit eligendi totam omnis error laudantium adipisci autem impedit quibusdam
+    cum tempora aliquam, architecto animi!
+  </p>
+</div>
+
+{% endblock %}
